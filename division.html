@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>División</title>
+    <link rel="stylesheet" href="styles/stylesDivi.css">
+    <link rel="stylesheet" href="styles/stylesTeclado.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h2>División</h2>
+        <p>Calculadora básica</p>
+        <a href="index.html"><button type="button" id="botonHome" href="index.html">HOME</button></a>
+
+      </div>
+    <form id="formulario">
+        <h4>División de enteros, complemento a 2</h4>
+        <label for="enteroA">Entero A:</label>
+        <input type="text" id="enteroA" name="enteroA" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','enteroA')">1</div>
+            <div class="key" onclick="addNumber('2','enteroA')">2</div>
+            <div class="key" onclick="addNumber('3','enteroA')">3</div>
+            <div class="key" onclick="addNumber('-','enteroA')">-</div>
+            <div class="key" onclick="addNumber('4','enteroA')">4</div>
+            <div class="key" onclick="addNumber('5','enteroA')">5</div>
+            <div class="key" onclick="addNumber('6','enteroA')">6</div>
+            <div class="key" onclick="addNumber('0','enteroA')">0</div>
+            <div class="key" onclick="addNumber('7','enteroA')">7</div>
+            <div class="key" onclick="addNumber('8','enteroA')">8</div>
+            <div class="key" onclick="addNumber ('9','enteroA')">9</div>
+            <div class="key" onclick="clearInput('enteroA')">C</div>
+        </div>
+
+        <label for="enteroB">Entero B:</label>
+        <input type="text" id="enteroB" name="enteroB" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','enteroB')">1</div>
+            <div class="key" onclick="addNumber('2','enteroB')">2</div>
+            <div class="key" onclick="addNumber('3','enteroB')">3</div>
+            <div class="key" onclick="addNumber('-','enteroB')">-</div>
+            <div class="key" onclick="addNumber('4','enteroB')">4</div>
+            <div class="key" onclick="addNumber('5','enteroB')">5</div>
+            <div class="key" onclick="addNumber('6','enteroB')">6</div>
+            <div class="key" onclick="addNumber('0','enteroB')">0</div>
+            <div class="key" onclick="addNumber('7','enteroB')">7</div>
+            <div class="key" onclick="addNumber('8','enteroB')">8</div>
+            <div class="key" onclick="addNumber ('9','enteroB')">9</div>
+            <div class="key" onclick="clearInput('enteroB')">C</div>
+        </div>
+
+        <label for="numBits">Número de Bits:</label>
+        <input type="number" id="numBits" name="numBits" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','numBits')">1</div>
+            <div class="key" onclick="addNumber('2','numBits')">2</div>
+            <div class="key" onclick="addNumber('3','numBits')">3</div>
+            <div class="key" onclick="addNumber('-','numBits')">-</div>
+            <div class="key" onclick="addNumber('4','numBits')">4</div>
+            <div class="key" onclick="addNumber('5','numBits')">5</div>
+            <div class="key" onclick="addNumber('6','numBits')">6</div>
+            <div class="key" onclick="addNumber('0','numBits')">0</div>
+            <div class="key" onclick="addNumber('7','numBits')">7</div>
+            <div class="key" onclick="addNumber('8','numBits')">8</div>
+            <div class="key" onclick="addNumber ('9','numBits')">9</div>
+            <div class="key" onclick="clearInput('numBits')">C</div>
+        </div>
+
+        <br>
+        <br>
+        <button type="button" onclick="{ calcularDiviEnteros(); limpiar();}">Calcular División</button>
+    </form>
+    <div id="resultado"></div>
+
+    <br>
+    <form id="formulario">
+        <h4>División de binarios en complemento a 2</h4>
+        <label for="enteroA">Binario A:</label>
+        <input type="text" id="binarioA" name="binarioA" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','binarioA')">1</div>
+            <div class="key" onclick="addNumber('2','binarioA')">2</div>
+            <div class="key" onclick="addNumber('3','binarioA')">3</div>
+            <div class="key" onclick="addNumber('-','binarioA')">-</div>
+            <div class="key" onclick="addNumber('4','binarioA')">4</div>
+            <div class="key" onclick="addNumber('5','binarioA')">5</div>
+            <div class="key" onclick="addNumber('6','binarioA')">6</div>
+            <div class="key" onclick="addNumber('0','binarioA')">0</div>
+            <div class="key" onclick="addNumber('7','binarioA')">7</div>
+            <div class="key" onclick="addNumber('8','binarioA')">8</div>
+            <div class="key" onclick="addNumber ('9','binarioA')">9</div>
+            <div class="key" onclick="clearInput('binarioA')">C</div>
+        </div>
+
+        <label for="enteroB">Binario B:</label>
+        <input type="text" id="binarioB" name="binarioB" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','binarioB')">1</div>
+            <div class="key" onclick="addNumber('2','binarioB')">2</div>
+            <div class="key" onclick="addNumber('3','binarioB')">3</div>
+            <div class="key" onclick="addNumber('-','binarioB')">-</div>
+            <div class="key" onclick="addNumber('4','binarioB')">4</div>
+            <div class="key" onclick="addNumber('5','binarioB')">5</div>
+            <div class="key" onclick="addNumber('6','binarioB')">6</div>
+            <div class="key" onclick="addNumber('0','binarioB')">0</div>
+            <div class="key" onclick="addNumber('7','binarioB')">7</div>
+            <div class="key" onclick="addNumber('8','binarioB')">8</div>
+            <div class="key" onclick="addNumber ('9','binarioB')">9</div>
+            <div class="key" onclick="clearInput('binarioB')">C</div>
+        </div>
+
+        <label for="numBits">Número de Bits:</label>
+        <input type="number" id="numBitsDos" name="numBitsDos" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','numBitsDos')">1</div>
+            <div class="key" onclick="addNumber('2','numBitsDos')">2</div>
+            <div class="key" onclick="addNumber('3','numBitsDos')">3</div>
+            <div class="key" onclick="addNumber('-','numBitsDos')">-</div>
+            <div class="key" onclick="addNumber('4','numBitsDos')">4</div>
+            <div class="key" onclick="addNumber('5','numBitsDos')">5</div>
+            <div class="key" onclick="addNumber('6','numBitsDos')">6</div>
+            <div class="key" onclick="addNumber('0','numBitsDos')">0</div>
+            <div class="key" onclick="addNumber('7','numBitsDos')">7</div>
+            <div class="key" onclick="addNumber('8','numBitsDos')">8</div>
+            <div class="key" onclick="addNumber ('9','numBitsDos')">9</div>
+            <div class="key" onclick="clearInput('numBitsDos')">C</div>
+        </div>
+        <br>
+        <br>
+        <button type="button" onclick="{ calcularDiviBin(); limpiarDos();}">Calcular Divisón</button>
+
+    </form>
+    <div id="resultado2"></div>
+
+    <script src="scripts/teclado.js"></script>
+    <script src="calc_functions/division.js"></script>
+</body>
+</html>

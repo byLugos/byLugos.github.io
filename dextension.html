@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicación</title>
+    <link rel="stylesheet" href="styles/stylesExte.css">
+    <link rel="stylesheet" href="styles/stylesTeclado.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h2>Desplazamientos & Extensión</h2>
+        <p>Calculadora básica</p>
+        <a href="index.html"><button type="button" id="botonHome" href="index.html">HOME</button></a>
+
+    </div>
+    <form id="formulario">
+        <h4>Desplazamiento aritmético</h4>
+        <label for="entrada">Número Decimal o Binario a desplazar:</label>
+        <input type="text" id="entrada" name="entrada" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','entrada')">1</div>
+            <div class="key" onclick="addNumber('2','entrada')">2</div>
+            <div class="key" onclick="addNumber('3','entrada')">3</div>
+            <div class="key" onclick="addNumber('-','entrada')">-</div>
+            <div class="key" onclick="addNumber('4','entrada')">4</div>
+            <div class="key" onclick="addNumber('5','entrada')">5</div>
+            <div class="key" onclick="addNumber('6','entrada')">6</div>
+            <div class="key" onclick="addNumber('0','entrada')">0</div>
+            <div class="key" onclick="addNumber('7','entrada')">7</div>
+            <div class="key" onclick="addNumber('8','entrada')">8</div>
+            <div class="key" onclick="addNumber ('9','entrada')">9</div>
+            <div class="key" onclick="clearInput('entrada')">C</div>
+        </div>
+
+        <label for="numBits">Número de Bits:</label>
+        <input type="number" id="numBits" name="numBits" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','numBits')">1</div>
+            <div class="key" onclick="addNumber('2','numBits')">2</div>
+            <div class="key" onclick="addNumber('3','numBits')">3</div>
+            <div class="key" onclick="addNumber('-','numBits')">-</div>
+            <div class="key" onclick="addNumber('4','numBits')">4</div>
+            <div class="key" onclick="addNumber('5','numBits')">5</div>
+            <div class="key" onclick="addNumber('6','numBits')">6</div>
+            <div class="key" onclick="addNumber('0','numBits')">0</div>
+            <div class="key" onclick="addNumber('7','numBits')">7</div>
+            <div class="key" onclick="addNumber('8','numBits')">8</div>
+            <div class="key" onclick="addNumber ('9','numBits')">9</div>
+            <div class="key" onclick="clearInput('numBits')">C</div>
+        </div>
+
+        <label for="cantBits">Cantidad de Bits a Desplazar:</label>
+        <input type="number" id="cantBits" name="cantBits" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','cantBits')">1</div>
+            <div class="key" onclick="addNumber('2','cantBits')">2</div>
+            <div class="key" onclick="addNumber('3','cantBits')">3</div>
+            <div class="key" onclick="addNumber('-','cantBits')">-</div>
+            <div class="key" onclick="addNumber('4','cantBits')">4</div>
+            <div class="key" onclick="addNumber('5','cantBits')">5</div>
+            <div class="key" onclick="addNumber('6','cantBits')">6</div>
+            <div class="key" onclick="addNumber('0','cantBits')">0</div>
+            <div class="key" onclick="addNumber('7','cantBits')">7</div>
+            <div class="key" onclick="addNumber('8','cantBits')">8</div>
+            <div class="key" onclick="addNumber ('9','cantBits')">9</div>
+            <div class="key" onclick="clearInput('cantBits')">C</div>
+        </div>
+
+        <label for="dcc">Dirección:</label>
+        <select id="dcc" name="dcc" required>
+            <option value="derecha">Derecha</option>
+            <option value="izquierda">Izquierda</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" onclick="{ desplazar(); limpiar();}">Desplazar</button>
+    </form>
+    <div id="resultado"></div>
+    <br>
+    <br>
+    <form id="formulario">
+        <h4>Extensión de ceros en Enteros</h4>
+        <label for="entero">Entero:</label>
+        <input type="text" id="entero" name="entero" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','entero')">1</div>
+            <div class="key" onclick="addNumber('2','entero')">2</div>
+            <div class="key" onclick="addNumber('3','entero')">3</div>
+            <div class="key" onclick="addNumber('-','entero')">-</div>
+            <div class="key" onclick="addNumber('4','entero')">4</div>
+            <div class="key" onclick="addNumber('5','entero')">5</div>
+            <div class="key" onclick="addNumber('6','entero')">6</div>
+            <div class="key" onclick="addNumber('0','entero')">0</div>
+            <div class="key" onclick="addNumber('7','entero')">7</div>
+            <div class="key" onclick="addNumber('8','entero')">8</div>
+            <div class="key" onclick="addNumber ('9','entero')">9</div>
+            <div class="key" onclick="clearInput('entero')">C</div>
+        </div>
+
+        <label for="bitE">Bits de entrada:</label>
+        <input type="number" id="bitE" name="bitE" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','bitE')">1</div>
+            <div class="key" onclick="addNumber('2','bitE')">2</div>
+            <div class="key" onclick="addNumber('3','bitE')">3</div>
+            <div class="key" onclick="addNumber('-','bitE')">-</div>
+            <div class="key" onclick="addNumber('4','bitE')">4</div>
+            <div class="key" onclick="addNumber('5','bitE')">5</div>
+            <div class="key" onclick="addNumber('6','bitE')">6</div>
+            <div class="key" onclick="addNumber('0','bitE')">0</div>
+            <div class="key" onclick="addNumber('7','bitE')">7</div>
+            <div class="key" onclick="addNumber('8','bitE')">8</div>
+            <div class="key" onclick="addNumber ('9','bitE')">9</div>
+            <div class="key" onclick="clearInput('bitE')">C</div>
+        </div>
+
+        <label for="bitS">Bits de salida:</label>
+        <input type="number" id="bitS" name="bitS" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','bitS')">1</div>
+            <div class="key" onclick="addNumber('2','bitS')">2</div>
+            <div class="key" onclick="addNumber('3','bitS')">3</div>
+            <div class="key" onclick="addNumber('-','bitS')">-</div>
+            <div class="key" onclick="addNumber('4','bitS')">4</div>
+            <div class="key" onclick="addNumber('5','bitS')">5</div>
+            <div class="key" onclick="addNumber('6','bitS')">6</div>
+            <div class="key" onclick="addNumber('0','bitS')">0</div>
+            <div class="key" onclick="addNumber('7','bitS')">7</div>
+            <div class="key" onclick="addNumber('8','bitS')">8</div>
+            <div class="key" onclick="addNumber ('9','bitS')">9</div>
+            <div class="key" onclick="clearInput('bitS')">C</div>
+        </div>
+        <br>
+        <br>
+        <button type="button" onclick="{ extenderEntero(); limpiarEx();}">Extender</button>
+    </form>
+    <div id="resultado2"></div>
+    <br>
+    <br>
+    <form id="formulario">
+        <h4>Extensión de ceros en Binarios</h4>
+        <label for="binario">Binario:</label>
+        <input type="number" id="binario" name="binario" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','binario')">1</div>
+            <div class="key" onclick="addNumber('2','binario')">2</div>
+            <div class="key" onclick="addNumber('3','binario')">3</div>
+            <div class="key" onclick="addNumber('-','binario')">-</div>
+            <div class="key" onclick="addNumber('4','binario')">4</div>
+            <div class="key" onclick="addNumber('5','binario')">5</div>
+            <div class="key" onclick="addNumber('6','binario')">6</div>
+            <div class="key" onclick="addNumber('0','binario')">0</div>
+            <div class="key" onclick="addNumber('7','binario')">7</div>
+            <div class="key" onclick="addNumber('8','binario')">8</div>
+            <div class="key" onclick="addNumber ('9','binario')">9</div>
+            <div class="key" onclick="clearInput('binario')">C</div>
+        </div>
+
+        <label for="bitEn">Bits de entrada:</label>
+        <input type="number" id="bitEn" name="bitEn" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','bitEn')">1</div>
+            <div class="key" onclick="addNumber('2','bitEn')">2</div>
+            <div class="key" onclick="addNumber('3','bitEn')">3</div>
+            <div class="key" onclick="addNumber('-','bitEn')">-</div>
+            <div class="key" onclick="addNumber('4','bitEn')">4</div>
+            <div class="key" onclick="addNumber('5','bitEn')">5</div>
+            <div class="key" onclick="addNumber('6','bitEn')">6</div>
+            <div class="key" onclick="addNumber('0','bitEn')">0</div>
+            <div class="key" onclick="addNumber('7','bitEn')">7</div>
+            <div class="key" onclick="addNumber('8','bitEn')">8</div>
+            <div class="key" onclick="addNumber ('9','bitEn')">9</div>
+            <div class="key" onclick="clearInput('bitEn')">C</div>
+        </div>
+
+
+
+        <label for="bitSa">Bits de salida:</label>
+        <input type="number" id="bitSa" name="bitSa" required>
+        <div class="keyboard">
+            <div class="key" onclick="addNumber('1','bitSa')">1</div>
+            <div class="key" onclick="addNumber('2','bitSa')">2</div>
+            <div class="key" onclick="addNumber('3','bitSa')">3</div>
+            <div class="key" onclick="addNumber('-','bitSa')">-</div>
+            <div class="key" onclick="addNumber('4','bitSa')">4</div>
+            <div class="key" onclick="addNumber('5','bitSa')">5</div>
+            <div class="key" onclick="addNumber('6','bitSa')">6</div>
+            <div class="key" onclick="addNumber('0','bitSa')">0</div>
+            <div class="key" onclick="addNumber('7','bitSa')">7</div>
+            <div class="key" onclick="addNumber('8','bitSa')">8</div>
+            <div class="key" onclick="addNumber ('9','bitSa')">9</div>
+            <div class="key" onclick="clearInput('bitSa')">C</div>
+        </div>
+        <br>
+        <br>
+        <button type="button" onclick="{ extenderBinario(); limpiarDos();}">Extender</button>
+    </form>
+    <div id="resultado3"></div>
+    <script src="calc_functions/desplazamiento_aritmetico.js"></script>
+    <script src="calc_functions/extension_ceros.js"></script>
+    <script src="scripts/teclado.js"></script>
+</body>
+
+</html>
